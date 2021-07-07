@@ -64,6 +64,11 @@ return [
             'url' => env('AWS_URL'),
         ],
 
+        'eraChita' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/eraChita'),
+        ],
+
     ],
 
     /*
