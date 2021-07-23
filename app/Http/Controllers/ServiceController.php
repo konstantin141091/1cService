@@ -20,7 +20,6 @@ class ServiceController extends Controller
         }
         if ($values) {
             foreach ($values[0] as $value) {
-
                 $product = eraChita::query()->where('value', '=', $value['articul'])
                     ->where('tmplvarid', '=', 32)->first();
 
