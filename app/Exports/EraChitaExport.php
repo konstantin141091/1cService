@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\Models\EraChita;
+use App\Models\eraChita;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
 class EraChitaExport implements FromCollection
@@ -12,6 +12,6 @@ class EraChitaExport implements FromCollection
     */
     public function collection()
     {
-        return EraChita::all();
+        return eraChita::all();
     }
 }

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class EraChita extends Model
+class eraChita extends Model
 {
     protected $table = 'modx_site_tmplvar_contentvalues';
     protected $primaryKey = 'id';
@@ -15,4 +15,5 @@ class EraChita extends Model
         'value',
     ];
     public $timestamps = false;
+    protected $connection = 'eraChita';
 }

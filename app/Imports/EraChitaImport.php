@@ -2,7 +2,7 @@
 
 namespace App\Imports;
 
-use App\Models\EraChita;
+use App\Models\eraChita;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\ToModel;
 
@@ -14,12 +14,8 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Concerns\SkipsEmptyRows;
 
-use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
-use Maatwebsite\Excel\Validators\Failure;
 
-use \PhpOffice\PhpSpreadsheet\Shared\Date;
-
-class EraChitaImport implements ToModel, WithHeadingRow, WithBatchInserts, WithChunkReading, ShouldQueue,
+class EraChitaImport implements WithHeadingRow, WithBatchInserts, WithChunkReading, ShouldQueue,
     WithValidation, SkipsEmptyRows
 {
     use Importable;
@@ -30,23 +26,7 @@ class EraChitaImport implements ToModel, WithHeadingRow, WithBatchInserts, WithC
     */
     public function model(array $row)
     {
-        $object = EraChita::query()->where('tmplvarid', '=', 32)
-            ->where('value', '=', $row['articul'])->get();
-
-        if ($row['price']) {
-            DB::connection('eraChita')->table('modx_site_tmplvar_contentvalues')
-                ->where('id', $object->contentid)->where('tmplvarid', 16)->update(['value' => $row['price']]);
-        }
-
-        if ($row['count']) {
-            DB::connection('eraChita')->table('modx_site_tmplvar_contentvalues')
-                ->where('id', $object->contentid)->where('tmplvarid', 33)->update(['value' => $row['count']]);
-        }
-
         return null;
-//        return new EraChita([
-//            //
-//        ]);
     }
 
     // определения количества вставки
