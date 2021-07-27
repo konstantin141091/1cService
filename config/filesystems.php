@@ -68,6 +68,10 @@ return [
             'driver' => 'local',
             'root' => storage_path('app/public/eraChita'),
         ],
+        'ortoComfort' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/ortoComfort'),
+        ],
 
     ],
 
